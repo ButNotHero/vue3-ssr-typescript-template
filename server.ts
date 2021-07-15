@@ -1,8 +1,13 @@
+// @ts-ignore
 import path from 'path';
+// @ts-ignore
 import express from 'express';
+// @ts-ignore
 import fs from 'fs';
+// @ts-ignore
 import serialize from 'serialize-javascript';
 import { renderToString } from '@vue/server-renderer';
+// @ts-ignore
 import manifest from './dist/server/ssr-manifest.json';
 import { VUE_APP_EXPRESS_PORT } from './env';
 
