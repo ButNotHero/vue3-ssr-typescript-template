@@ -1,4 +1,5 @@
 import { createRouter, createMemoryHistory, createWebHistory } from 'vue-router';
+import AboutLayout from '../layouts/about.vue';
 
 const isServer = typeof window === 'undefined';
 
@@ -15,6 +16,9 @@ const routes = [
     name: 'page',
     component: () => import('../pages/Page.vue'),
     props: true,
+    meta: {
+      layout: AboutLayout,
+    },
   },
 ];
 
