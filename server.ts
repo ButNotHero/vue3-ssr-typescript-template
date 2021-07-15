@@ -16,11 +16,11 @@ const server = express();
 const appPath = path.join(__dirname, './dist', 'server', manifest['app.js']);
 const createAppAsync = import(appPath);
 
-server.use('/img', express.static(path.join(__dirname, './dist/client', 'img')));
-server.use('/js', express.static(path.join(__dirname, './dist/client', 'js')));
-server.use('/css', express.static(path.join(__dirname, './dist/client', 'css')));
-server.use('/fonts', express.static(path.join(__dirname, './dist/client', 'fonts')));
-server.use('/favicon.ico', express.static(path.join(__dirname, './dist/client', 'favicon.ico')));
+server.use('/img', express.static(path.join(__dirname, './dist', 'img')));
+server.use('/js', express.static(path.join(__dirname, './dist', 'js')));
+server.use('/css', express.static(path.join(__dirname, './dist', 'css')));
+server.use('/fonts', express.static(path.join(__dirname, './dist', 'fonts')));
+server.use('/favicon.ico', express.static(path.join(__dirname, './dist', 'favicon.ico')));
 
 const renderState = (store: { [id: string]: any }, windowKey: string) => {
   const state = serialize(store);
@@ -45,7 +45,7 @@ server.get('*', async (req, res) => {
 
   let appContent = await renderToString(app);
 
-  fs.readFile(path.join(__dirname, '/dist/client/index.html'), (err, html) => {
+  fs.readFile(path.join(__dirname, '/dist/index.html'), (err, html) => {
     if (err) {
       throw err;
     }

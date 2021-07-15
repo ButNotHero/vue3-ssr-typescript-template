@@ -6,7 +6,7 @@
     "serve": "vue-cli-service serve",
     "build": "yarn run build:all && yarn run ssr",
     "build:all": "rimraf -rf ./dist && yarn run build:client && yarn run build:server",
-    "build:client": "vue-cli-service build --dest dist/client",
+    "build:client": "vue-cli-service build --dest dist",
     "build:server": "cross-env SSR=1 vue-cli-service build --dest dist/server",
     "ssr": "ts-node server.ts",
     "ssr:dev": "ts-node server.ts",

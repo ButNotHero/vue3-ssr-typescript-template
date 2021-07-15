@@ -2,6 +2,6 @@
   "root": "dist/client",
   "clean_urls": true,
   "routes": {
-    "/**": "index.html"
+    "/": "index.html"
   }
 }
