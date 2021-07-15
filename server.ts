@@ -57,6 +57,8 @@ server.get('*', async (req, res) => {
   });
 });
 
-console.log(`You can navigate to http://localhost:${VUE_APP_PRODUCTION_PORT}`);
+const port = VUE_APP_PRODUCTION_PORT || 8080;
 
-server.listen(VUE_APP_PRODUCTION_PORT);
+server.listen(port, () => {
+  console.log(`Server started at http://localhost:${port}`);
+});
