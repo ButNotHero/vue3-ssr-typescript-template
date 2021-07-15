@@ -1,0 +1,30 @@
+<template>
+  <ul>
+    <li>
+      <router-link :to="{ name: 'home' }">Go to home</router-link>
+    </li>
+
+    <li>
+      <router-link :to="{ name: 'page', params: { id: 2} }">Go to other page</router-link>
+    </li>
+  </ul>
+
+  <router-view></router-view>
+</template>
+
+<script lang="ts">
+export default {
+  name: 'App',
+};
+</script>
+
+<style>
+#app {
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #2c3e50;
+  margin-top: 60px;
+}
+</style>

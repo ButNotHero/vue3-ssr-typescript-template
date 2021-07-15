@@ -1,0 +1,63 @@
+{
+  "name": "vue3-ssr-typescript",
+  "version": "0.1.1 beta",
+  "private": true,
+  "scripts": {
+    "test:unit": "vue-cli-service test:unit",
+    "build:client": "vue-cli-service build --dest dist/client",
+    "build:server": "cross-env SSR=1 vue-cli-service build --dest dist/server",
+    "build": "rimraf -rf ./dist && yarn run build:client && yarn run build:server",
+    "build-start:prod": "yarn run build && yarn run ssr",
+    "check-types": "tsc --noemit",
+    "lint": "vue-cli-service lint && yarn run check-types",
+    "serve": "vue-cli-service serve",
+    "pressr": "yarn run build",
+    "ssr": "ts-node server.ts",
+    "ssr:dev": "ts-node server.ts"
+  },
+  "dependencies": {
+    "@vue/server-renderer": "^3.0.7",
+    "axios": "^0.21.1",
+    "core-js": "^3.9.1",
+    "cross-env": "^7.0.3",
+    "express": "^4.17.1",
+    "serialize-javascript": "^5.0.1",
+    "vue": "^3.0.2",
+    "vue-router": "^4.0.0",
+    "vuex": "^4.0.0",
+    "webpack": "^5.24.4"
+  },
+  "devDependencies": {
+    "@types/jest": "^26.0.20",
+    "@types/serialize-javascript": "^5.0.0",
+    "@typescript-eslint/eslint-plugin": "^4.17.0",
+    "@typescript-eslint/parser": "^4.17.0",
+    "@vue/cli-plugin-eslint": "^5.0.0-alpha.5",
+    "@vue/cli-plugin-router": "^5.0.0-alpha.5",
+    "@vue/cli-plugin-typescript": "^5.0.0-alpha.5",
+    "@vue/cli-plugin-unit-jest": "^5.0.0-alpha.5",
+    "@vue/cli-service": "^5.0.0-alpha.6",
+    "@vue/compiler-sfc": "^3.0.7",
+    "@vue/eslint-config-airbnb": "^5.3.0",
+    "@vue/eslint-config-typescript": "^7.0.0",
+    "eslint": "^7.21.0",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-vue": "^7.7.0",
+    "lint-staged": "^10.5.4",
+    "rimraf": "^3.0.2",
+    "ts-node": "^9.1.1",
+    "typescript": "^4.2.3",
+    "vue-jest": "^3.0.7",
+    "webpack-manifest-plugin": "^3.1.0",
+    "webpack-node-externals": "^2.5.2"
+  },
+  "gitHooks": {
+    "pre-commit": "lint-staged"
+  },
+  "lint-staged": {
+    "*.{js,jsx,vue,ts,tsx}": [
+      "vue-cli-service lint",
+      "git add"
+    ]
+  }
+}
