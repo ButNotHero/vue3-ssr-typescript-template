@@ -4,12 +4,10 @@
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
-    "build": "yarn run build:all && yarn run ssr",
-    "build:all": "rimraf -rf ./dist && yarn run build:client && yarn run build:server",
+    "ssr:dev": "ts-node server.ts",
+    "build": "rimraf -rf ./dist && yarn run build:client && yarn run build:server",
     "build:client": "vue-cli-service build --dest dist/client",
     "build:server": "cross-env SSR=1 vue-cli-service build --dest dist/server",
-    "ssr": "ts-node server.ts",
-    "ssr:dev": "ts-node server.ts",
     "fix": "yarn fix:eslint && yarn fix:stylelint",
     "fix:eslint": "eslint **/*.{js,ts,vue} --fix",
     "fix:prettier": "prettier --write **/*.{vue,js,ts,css,sass,scss}",
@@ -19,7 +17,8 @@
     "lint:eslint": "eslint **/*.{js,ts,vue}",
     "lint:prettier": "prettier --check **/*.{vue,js,ts,css,sass,scss}",
     "lint:stylelint": "stylelint **/*.{vue,css,sass,scss} --ignore-path",
-    "test:unit": "vue-cli-service test:unit"
+    "test:unit": "vue-cli-service test:unit",
+    "start": "ts-node server.ts"
   },
   "dependencies": {
     "@vue/server-renderer": "^3.0.7",
