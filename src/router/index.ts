@@ -5,9 +5,9 @@ const isServer = typeof window === 'undefined';
 
 const history = isServer ? createMemoryHistory() : createWebHistory();
 
-export default function () {
-  return createRouter({
-    routes,
-    history,
-  });
-}
+const router = createRouter({
+  routes,
+  history,
+});
+
+export default router;
