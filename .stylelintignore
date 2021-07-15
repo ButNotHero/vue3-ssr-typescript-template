@@ -1,0 +1,19 @@
+#Old style library without packaging
+*.min.css
+
+#Other types of documents
+*.js
+*.ts
+*.jpg
+*.png
+*.eot
+*.ttf
+*.woff
+*.json
+
+#Test and package catalog
+/dist/
+/build/
+/coverage/
+/node_modules/
+/static/

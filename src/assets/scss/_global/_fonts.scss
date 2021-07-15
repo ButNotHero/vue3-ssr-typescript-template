@@ -1,0 +1,60 @@
+@import '../_vars/index';
+
+// ----- START SF-UI-Display Font -----
+@include font-face(
+  $ff-sf-ui-display,
+  '~@/static/fonts/sf-ui-display/SFUIDisplay-Black',
+  900,
+  normal,
+  eot ttf woff woff2
+);
+@include font-face(
+  $ff-sf-ui-display,
+  '~@/static/fonts/sf-ui-display/SFUIDisplay-Heavy',
+  800,
+  normal,
+  eot ttf woff woff2
+);
+@include font-face(
+  $ff-sf-ui-display,
+  '~@/static/fonts/sf-ui-display/SFUIDisplay-Bold',
+  700,
+  normal,
+  eot ttf woff woff2
+);
+@include font-face(
+  $ff-sf-ui-display,
+  '~@/static/fonts/sf-ui-display/SFUIDisplay-Semibold',
+  600,
+  normal,
+  eot ttf woff woff2
+);
+@include font-face(
+  $ff-sf-ui-display,
+  '~@/static/fonts/sf-ui-display/SFUIDisplay-Medium',
+  500,
+  normal,
+  eot ttf woff woff2
+);
+@include font-face(
+  $ff-sf-ui-display,
+  '~@/static/fonts/sf-ui-display/SFUIDisplay-Light',
+  400,
+  normal,
+  eot ttf woff woff2
+);
+@include font-face(
+  $ff-sf-ui-display,
+  '~@/static/fonts/sf-ui-display/SFUIDisplay-Thin',
+  300,
+  normal,
+  eot ttf woff woff2
+);
+@include font-face(
+  $ff-sf-ui-display,
+  '~@/static/fonts/sf-ui-display/SFUIDisplay-Ultralight',
+  200,
+  normal,
+  eot ttf woff woff2
+);
+// ----- END SF-UI-Display Font -----

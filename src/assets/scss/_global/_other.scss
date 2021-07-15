@@ -1,0 +1,39 @@
+@import '../_vars/index';
+
+html {
+  box-sizing: border-box !important;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit !important;
+}
+
+#app {
+  position: relative;
+  color: $color-text;
+  font-family: $ff-default;
+  text-align: center;
+}
+
+#nav {
+  padding: 30px;
+
+  a {
+    color: $color-text;
+    font-weight: bold;
+
+    &.router-link-exact-active {
+      color: $color-link;
+    }
+  }
+}
+
+.container {
+  position: relative;
+  width: 100%;
+  max-width: $container-max-width;
+  margin: 0 auto;
+  padding: 0 $container-padding-sides;
+}

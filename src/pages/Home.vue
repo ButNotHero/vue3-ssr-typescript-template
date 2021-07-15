@@ -1,6 +1,6 @@
 <template>
-  <img alt="Vue logo" src="../assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <img alt="Vue logo" src="../assets/logo.png" />
+  <HelloWorld msg="Welcome to Your Vue.js App" />
 
   <ul v-if="users.length > 0">
     <li v-for="u in users" :key="u.id">

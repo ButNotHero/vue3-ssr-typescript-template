@@ -1,15 +1,15 @@
-import {
-  createRouter,
-  createMemoryHistory,
-  createWebHistory,
-} from 'vue-router';
+import { createRouter, createMemoryHistory, createWebHistory } from 'vue-router';
 
 const isServer = typeof window === 'undefined';
 
 const history = isServer ? createMemoryHistory() : createWebHistory();
 
 const routes = [
-  { path: '/', name: 'home', component: () => import('../pages/Home.vue') },
+  {
+    path: '/',
+    name: 'home',
+    component: () => import('../pages/Home.vue'),
+  },
   {
     path: '/page/:id',
     name: 'page',
@@ -19,5 +19,8 @@ const routes = [
 ];
 
 export default function () {
-  return createRouter({ routes, history });
+  return createRouter({
+    routes,
+    history,
+  });
 }

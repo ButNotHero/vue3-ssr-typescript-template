@@ -5,6 +5,8 @@ import createRouter from './router';
 import * as nativeStore from './store/useNativeStore';
 import * as vuexStore from './store/useVuexStore';
 
+import './assets/scss/styles.scss';
+
 export default function (args: any) {
   const rootComponent = {
     render: () => h(App),

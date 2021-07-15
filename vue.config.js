@@ -13,6 +13,16 @@ module.exports = {
       errors: false,
     },
   },
+  css: {
+    loaderOptions: {
+      sass: {
+        prependData: `
+          @import "@/assets/scss/_vars";
+          @import "@/assets/scss/_mixins";
+        `,
+      },
+    },
+  },
   // configureWebpack: {
   //   resolve: { mainFields: ['main', 'module'] }
   // },

@@ -13,25 +13,15 @@ const createAppAsync = import(appPath);
 server.use('/img', express.static(path.join(__dirname, './dist/client', 'img')));
 server.use('/js', express.static(path.join(__dirname, './dist/client', 'js')));
 server.use('/css', express.static(path.join(__dirname, './dist/client', 'css')));
-server.use(
-  '/favicon.ico',
-  express.static(path.join(__dirname, './dist/client', 'favicon.ico')),
-);
+server.use('/fonts', express.static(path.join(__dirname, './dist/client', 'fonts')));
+server.use('/favicon.ico', express.static(path.join(__dirname, './dist/client', 'favicon.ico')));
 
 const renderState = (store: { [id: string]: any }, windowKey: string) => {
   const state = serialize(store);
-  const autoRemove = ';(function(){var s;(s=document.currentScript||document.scripts[document.scripts.length-1]).parentNode.removeChild(s);}());';
+  const autoRemove =
+    ';(function(){var s;(s=document.currentScript||document.scripts[document.scripts.length-1]).parentNode.removeChild(s);}());';
   const nonceAttr = store.nonce ? ` nonce="${store.nonce}"` : '';
-  return store
-    ? `<script${
-      nonceAttr
-    }>window.${
-      windowKey
-    }=${
-      state
-    }${autoRemove
-    }</script>`
-    : '';
+  return store ? `<script${nonceAttr}>window.${windowKey}=${state}${autoRemove}</script>` : '';
 };
 
 server.get('*', async (req, res) => {
@@ -54,9 +44,13 @@ server.get('*', async (req, res) => {
       throw err;
     }
 
-    appContent = `<div id="app">${renderState(vuexStore.state, '__INITIAL_STATE__')}${renderState(nativeStore, '__INITIAL_NATIVE_STATE__')}${appContent}</div>`;
+    appContent = `<div id="app">${renderState(vuexStore.state, '__INITIAL_STATE__')}${renderState(
+      nativeStore,
+      '__INITIAL_NATIVE_STATE__',
+    )}${appContent}</div>`;
 
-    const str = html.toString().replace(new RegExp('<div id="app".*></div>'), `${appContent}`);
+    const str = html.toString()
+      .replace(new RegExp('<div id="app".*></div>'), `${appContent}`);
     res.setHeader('Content-Type', 'text/html');
     res.send(str);
   });
