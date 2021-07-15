@@ -57,7 +57,7 @@ server.get('*', async (req, res) => {
   });
 });
 
-const port = process.env.PORT || VUE_APP_EXPRESS_PORT || 8080;
+const port = process.env.PORT || VUE_APP_EXPRESS_PORT || 3000;
 
 server.listen(port, () => {
   console.log(`Server started at http://localhost:${port}`);
