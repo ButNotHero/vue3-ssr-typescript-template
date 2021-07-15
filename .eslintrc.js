@@ -20,6 +20,7 @@ module.exports = {
     '@typescript-eslint/no-explicit-any': 'off',
     'func-names': 'off',
     'operator-linebreak': 'off',
+    'import/prefer-default-export': 'off',
   },
   overrides: [
     {

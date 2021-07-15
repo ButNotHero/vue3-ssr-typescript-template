@@ -1,0 +1,1 @@
+export const VUE_APP_PRODUCTION_PORT = 8080;

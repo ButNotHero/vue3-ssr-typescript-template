@@ -4,6 +4,7 @@ import fs from 'fs';
 import serialize from 'serialize-javascript';
 import { renderToString } from '@vue/server-renderer';
 import manifest from './dist/server/ssr-manifest.json';
+import { VUE_APP_PRODUCTION_PORT } from './env';
 
 const server = express();
 
@@ -56,6 +57,6 @@ server.get('*', async (req, res) => {
   });
 });
 
-console.log('You can navigate to http://localhost:8787');
+console.log(`You can navigate to http://localhost:${VUE_APP_PRODUCTION_PORT}`);
 
-server.listen(8787);
+server.listen(VUE_APP_PRODUCTION_PORT);
