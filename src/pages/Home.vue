@@ -28,14 +28,9 @@ export default defineComponent({
     const users = computed(() => store.state.users);
 
     const fetch = async () => {
-      console.log('fetching ...');
-
       const { data: res } = await axios.get('https://reqres.in/api/users?page=2');
 
       store.commit('setUsers', res.data);
-
-      console.log(res.data);
-      console.log('^^ fetch data ^^^');
     };
 
     if (!isSSR && !users.value.length) {
