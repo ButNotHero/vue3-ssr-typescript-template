@@ -4,7 +4,7 @@ import fs from 'fs';
 import serialize from 'serialize-javascript';
 import { renderToString } from '@vue/server-renderer';
 import manifest from './dist/server/ssr-manifest.json';
-import { VUE_APP_PRODUCTION_PORT } from './env';
+import { VUE_APP_EXPRESS_PORT } from './env';
 
 const server = express();
 
@@ -57,7 +57,7 @@ server.get('*', async (req, res) => {
   });
 });
 
-const port = VUE_APP_PRODUCTION_PORT || 8080;
+const port = process.env.PORT || VUE_APP_EXPRESS_PORT || 8080;
 
 server.listen(port, () => {
   console.log(`Server started at http://localhost:${port}`);
