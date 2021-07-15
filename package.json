@@ -35,6 +35,8 @@
     "webpack": "^5.24.4"
   },
   "devDependencies": {
+    "@commitlint/cli": "^12.1.4",
+    "@commitlint/config-conventional": "^12.1.4",
     "@types/jest": "^26.0.20",
     "@types/serialize-javascript": "^5.0.0",
     "@typescript-eslint/eslint-plugin": "^4.17.0",
@@ -50,6 +52,7 @@
     "eslint": "^7.21.0",
     "eslint-plugin-import": "^2.22.1",
     "eslint-plugin-vue": "^7.7.0",
+    "husky": "^7.0.1",
     "lint-staged": "^10.5.4",
     "rimraf": "^3.0.2",
     "node-sass": "^4.12.0",
@@ -70,12 +73,19 @@
     "webpack-node-externals": "^2.5.2"
   },
   "gitHooks": {
-    "pre-commit": "lint-staged"
+    "commit-msg": "commitlint -e -V",
+    "pre-commit": "lint-staged",
+    "pre-push": "lint-staged"
   },
   "lint-staged": {
-    "*.{js,jsx,vue,ts,tsx}": [
-      "vue-cli-service lint",
-      "git add"
-    ]
+    "*.{vue,js,jsx,ts,tsx}": "eslint --fix",
+    "*.{vue,css,sass,scss}": "stylelint --fix"
+  },
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
+      "pre-commit": "lint-staged",
+      "pre-push": "lint-staged"
+    }
   }
 }
